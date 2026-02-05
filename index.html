@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICSE Phrasal Verbs Master List</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Calm Green Theme Variables */
+            --primary-green: #2F855A; /* Forest Green */
+            --light-green: #C6F6D5;   /* Mint */
+            --bg-color: #F0FFF4;      /* Very light green bg */
+            --card-bg: #FFFFFF;
+            --text-dark: #2D3748;
+            --text-light: #718096;
+            --border-radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-hover: 0 10px 15px rgba(47, 133, 90, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: 'Source Sans 3', sans-serif; /* Easy to read body font */
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* --- Header Section --- */
+        header {
+            background: linear-gradient(135deg, #2F855A 0%, #276749 100%);
+            color: white;
+            padding: 50px 20px 70px; /* Extra padding at bottom for search bar */
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 10px rgba(47, 133, 90, 0.2);
+        }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- Search Bar --- */
+        .search-container {
+            max-width: 600px;
+            margin: -30px auto 40px; /* Pull up into header area */
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        #searchBox {
+            width: 100%;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #searchBox:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(47, 133, 90, 0.25);
+        }
+
+        /* --- Content Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 10px;
+            margin: 50px 0 25px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 28px;
+            background-color: var(--primary-green);
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        /* --- Grid System --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* --- Card Design --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            border: 1px solid rgba(47, 133, 90, 0.1);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--light-green);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-green);
+            opacity: 0.8;
+        }
+
+        .verb {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .meaning {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        /* --- Preposition List Design --- */
+        .prep-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .prep-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--light-green);
+            color: var(--primary-green);
+            font-weight: 600;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+        }
+
+        .prep-item:hover {
+            background-color: var(--light-green);
+            color: #1a4731;
+            transform: scale(1.02);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 20px;
+            background-color: white;
+            border-top: 5px solid var(--light-green);
+        }
+
+        .citation {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            letter-spacing: 0.5px;
+        }
+        
+        .citation span {
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Study Master List</h1>
+        <p>ICSE 2026 Phrasal Verbs & Prepositions</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchBox" onkeyup="filterList()" placeholder="Type to find a verb (e.g., 'give up')...">
+    </div>
+
+    <div class="container">
+        
+        <h2 class="section-title">Recent & Confirmed (2023-2025)</h2>
+        <div class="grid" id="recent-list">
+            <div class="card"><span class="verb">Accuse of</span><span class="meaning">To charge someone with wrongdoing.</span></div>
+            <div class="card"><span class="verb">Get under control</span><span class="meaning">To bring a situation into order.</span></div>
+            <div class="card"><span class="verb">Hang over</span><span class="meaning">To hover above or weigh on a situation.</span></div>
+            <div class="card"><span class="verb">Jump off / out of</span><span class="meaning">To exit by jumping.</span></div>
+            <div class="card"><span class="verb">Name after</span><span class="meaning">To give someone another person's name.</span></div>
+            <div class="card"><span class="verb">Opt out of</span><span class="meaning">To withdraw or choose not to participate.</span></div>
+            <div class="card"><span class="verb">Speak up (against)</span><span class="meaning">To voice opposition boldly.</span></div>
+        </div>
+
+        <h2 class="section-title">High-Frequency Phrasal Verbs (A - Z)</h2>
+        <div class="grid" id="main-list">
+            <div class="card"><span class="verb">Act upon</span><span class="meaning">To take action or a step regarding a situation.</span></div>
+            <div class="card"><span class="verb">Add up</span><span class="meaning">To make sense or to total.</span></div>
+            <div class="card"><span class="verb">Back out</span><span class="meaning">To withdraw from a promise or plan.</span></div>
+            <div class="card"><span class="verb">Bear with</span><span class="meaning">To be patient.</span></div>
+            <div class="card"><span class="verb">Break down</span><span class="meaning">Machine stops working; losing emotional control.</span></div>
+            <div class="card"><span class="verb">Break into</span><span class="meaning">To enter a place forcibly.</span></div>
+            <div class="card"><span class="verb">Breakout</span><span class="meaning">To start suddenly (war, fire, illness).</span></div>
+            <div class="card"><span class="verb">Bring about</span><span class="meaning">To cause something to happen.</span></div>
+            <div class="card"><span class="verb">Bring up</span><span class="meaning">To raise a topic, or to raise a child.</span></div>
+            <div class="card"><span class="verb">Call off</span><span class="meaning">To cancel.</span></div>
+            <div class="card"><span class="verb">Call on</span><span class="meaning">To request or visit someone.</span></div>
+            <div class="card"><span class="verb">Carry on</span><span class="meaning">To continue.</span></div>
+            <div class="card"><span class="verb">Carry out</span><span class="meaning">To execute or perform a task.</span></div>
+            <div class="card"><span class="verb">Catch up with</span><span class="meaning">To reach the same level as someone else.</span></div>
+            <div class="card"><span class="verb">Come across</span><span class="meaning">To find something unexpectedly.</span></div>
+            <div class="card"><span class="verb">Come off</span><span class="meaning">To succeed.</span></div>
+            <div class="card"><span class="verb">Come to</span><span class="meaning">To regain consciousness.</span></div>
+            <div class="card"><span class="verb">Come up with</span><span class="meaning">To suggest or produce an idea.</span></div>
+            <div class="card"><span class="verb">Cut down</span><span class="meaning">To reduce the consumption of something.</span></div>
+            <div class="card"><span class="verb">Do away with</span><span class="meaning">To abolish.</span></div>
+            <div class="card"><span class="verb">Drop out</span><span class="meaning">To leave something before completion.</span></div>
+            <div class="card"><span class="verb">Fall apart</span><span class="meaning">To break into pieces or crumble.</span></div>
+            <div class="card"><span class="verb">Fall back on</span><span class="meaning">To depend on for support.</span></div>
+            <div class="card"><span class="verb">Fall out</span><span class="meaning">To quarrel or argue.</span></div>
+            <div class="card"><span class="verb">Figure out</span><span class="meaning">To understand or solve something.</span></div>
+            <div class="card"><span class="verb">Get along with</span><span class="meaning">To have a good relationship with someone.</span></div>
+            <div class="card"><span class="verb">Get away</span><span class="meaning">To escape.</span></div>
+            <div class="card"><span class="verb">Get by</span><span class="meaning">To manage with difficulty.</span></div>
+            <div class="card"><span class="verb">Get over</span><span class="meaning">To recover from a situation or illness.</span></div>
+            <div class="card"><span class="verb">Get rid of</span><span class="meaning">To remove or be free of something.</span></div>
+            <div class="card"><span class="verb">Get through</span><span class="meaning">To succeed or pass through a difficult time.</span></div>
+            <div class="card"><span class="verb">Give in</span><span class="meaning">To surrender.</span></div>
+            <div class="card"><span class="verb">Give up</span><span class="meaning">To stop doing something or stop trying.</span></div>
+            <div class="card"><span class="verb">Give up on</span><span class="meaning">To stop believing in someone.</span></div>
+            <div class="card"><span class="verb">Go on</span><span class="meaning">To continue.</span></div>
+            <div class="card"><span class="verb">Go through</span><span class="meaning">To experience something.</span></div>
+            <div class="card"><span class="verb">Hold back</span><span class="meaning">To restrain (e.g., holding back tears).</span></div>
+            <div class="card"><span class="verb">Hold on</span><span class="meaning">To wait.</span></div>
+            <div class="card"><span class="verb">Hold up</span><span class="meaning">To delay or stop temporarily.</span></div>
+            <div class="card"><span class="verb">Keep away</span><span class="meaning">To avoid.</span></div>
+            <div class="card"><span class="verb">Keep up with</span><span class="meaning">To maintain the same pace.</span></div>
+            <div class="card"><span class="verb">Lay off</span><span class="meaning">To dismiss from a job.</span></div>
+            <div class="card"><span class="verb">Let down</span><span class="meaning">To disappoint.</span></div>
+            <div class="card"><span class="verb">Look after</span><span class="meaning">To take care of someone or something.</span></div>
+            <div class="card"><span class="verb">Look down on</span><span class="meaning">To despise or think less of someone.</span></div>
+            <div class="card"><span class="verb">Look for</span><span class="meaning">To search.</span></div>
+            <div class="card"><span class="verb">Look forward to</span><span class="meaning">To anticipate with pleasure.</span></div>
+            <div class="card"><span class="verb">Look into</span><span class="meaning">To investigate.</span></div>
+            <div class="card"><span class="verb">Look up to</span><span class="meaning">To admire or respect someone.</span></div>
+            <div class="card"><span class="verb">Make out</span><span class="meaning">To understand.</span></div>
+            <div class="card"><span class="verb">Make up</span><span class="meaning">To reconcile, invent, or create.</span></div>
+            <div class="card"><span class="verb">Move on</span><span class="meaning">To progress or move forward.</span></div>
+            <div class="card"><span class="verb">Opt for</span><span class="meaning">To choose.</span></div>
+            <div class="card"><span class="verb">Pass away</span><span class="meaning">To die.</span></div>
+            <div class="card"><span class="verb">Pass out</span><span class="meaning">To faint.</span></div>
+            <div class="card"><span class="verb">Pick up</span><span class="meaning">To collect or learn.</span></div>
+            <div class="card"><span class="verb">Put down</span><span class="meaning">To insult or place something down.</span></div>
+            <div class="card"><span class="verb">Put off</span><span class="meaning">To postpone.</span></div>
+            <div class="card"><span class="verb">Put up</span><span class="meaning">To stay or reside.</span></div>
+            <div class="card"><span class="verb">Put up with</span><span class="meaning">To tolerate.</span></div>
+            <div class="card"><span class="verb">Write off</span><span class="meaning">To cancel or consider useless.</span></div>
+            <div class="card"><span class="verb">Rule out</span><span class="meaning">To eliminate an option.</span></div>
+            <div class="card"><span class="verb">Run after</span><span class="meaning">To chase.</span></div>
+            <div class="card"><span class="verb">Run away</span><span class="meaning">To escape.</span></div>
+            <div class="card"><span class="verb">Run into</span><span class="meaning">To meet someone unexpectedly.</span></div>
+            <div class="card"><span class="verb">Run out of</span><span class="meaning">To have no more of something left.</span></div>
+            <div class="card"><span class="verb">See off</span><span class="meaning">To say goodbye to someone.</span></div>
+            <div class="card"><span class="verb">Set aside</span><span class="meaning">To save or reserve.</span></div>
+            <div class="card"><span class="verb">Set off</span><span class="meaning">To begin a journey.</span></div>
+            <div class="card"><span class="verb">Set out</span><span class="meaning">To start a journey.</span></div>
+            <div class="card"><span class="verb">Set up</span><span class="meaning">To establish.</span></div>
+            <div class="card"><span class="verb">Show off</span><span class="meaning">To boast.</span></div>
+            <div class="card"><span class="verb">Slow down</span><span class="meaning">To reduce speed.</span></div>
+            <div class="card"><span class="verb">Stand by</span><span class="meaning">To support.</span></div>
+            <div class="card"><span class="verb">Stand for</span><span class="meaning">To represent.</span></div>
+            <div class="card"><span class="verb">Stand out</span><span class="meaning">To be noticeable.</span></div>
+            <div class="card"><span class="verb">Stick to</span><span class="meaning">To follow strictly.</span></div>
+            <div class="card"><span class="verb">Take after</span><span class="meaning">To resemble someone.</span></div>
+            <div class="card"><span class="verb">Take away</span><span class="meaning">To remove.</span></div>
+            <div class="card"><span class="verb">Take down</span><span class="meaning">To note or write down.</span></div>
+            <div class="card"><span class="verb">Take in</span><span class="meaning">To understand or to deceive.</span></div>
+            <div class="card"><span class="verb">Take off</span><span class="meaning">To remove clothing or to start flying.</span></div>
+            <div class="card"><span class="verb">Take over</span><span class="meaning">To assume control.</span></div>
+            <div class="card"><span class="verb">Take up</span><span class="meaning">To start a hobby or job.</span></div>
+            <div class="card"><span class="verb">Talk over</span><span class="meaning">To discuss.</span></div>
+            <div class="card"><span class="verb">Think over</span><span class="meaning">To consider carefully.</span></div>
+            <div class="card"><span class="verb">Throw away</span><span class="meaning">To discard.</span></div>
+            <div class="card"><span class="verb">Turn against</span><span class="meaning">To become opposed to someone.</span></div>
+            <div class="card"><span class="verb">Turn down</span><span class="meaning">To reject.</span></div>
+            <div class="card"><span class="verb">Turn into</span><span class="meaning">To transform.</span></div>
+            <div class="card"><span class="verb">Turn up</span><span class="meaning">To appear or arrive.</span></div>
+            <div class="card"><span class="verb">Use up</span><span class="meaning">To exhaust or consume entirely.</span></div>
+            <div class="card"><span class="verb">Wait for</span><span class="meaning">To expect.</span></div>
+            <div class="card"><span class="verb">Walk out</span><span class="meaning">To leave angrily.</span></div>
+            <div class="card"><span class="verb">Watch out</span><span class="meaning">To be careful.</span></div>
+            <div class="card"><span class="verb">Wear out</span><span class="meaning">To become useless through use.</span></div>
+            <div class="card"><span class="verb">Work on</span><span class="meaning">To improve.</span></div>
+            <div class="card"><span class="verb">Work out</span><span class="meaning">To solve.</span></div>
+            <div class="card"><span class="verb">Zone out</span><span class="meaning">To lose focus.</span></div>
+        </div>
+
+        <h2 class="section-title">Essential Verb + Preposition Patterns</h2>
+        <ul class="prep-list" id="prep-list">
+            <li class="prep-item">Accustomed to</li>
+            <li class="prep-item">Agree with / on / to</li>
+            <li class="prep-item">Apologise for</li>
+            <li class="prep-item">Aware of</li>
+            <li class="prep-item">Blame for</li>
+            <li class="prep-item">Belong to</li>
+            <li class="prep-item">Borrow from</li>
+            <li class="prep-item">Capable of</li>
+            <li class="prep-item">Complain about</li>
+            <li class="prep-item">Congratulate on</li>
+            <li class="prep-item">Depend on</li>
+            <li class="prep-item">Deprived of</li>
+            <li class="prep-item">Fond of</li>
+            <li class="prep-item">Insist on</li>
+            <li class="prep-item">Interested in</li>
+            <li class="prep-item">Remind of / about</li>
+            <li class="prep-item">Succeed in</li>
+            <li class="prep-item">Suffer from</li>
+        </ul>
+
+    </div>
+
+    <footer>
+        <div class="citation">
+            Made by Sriyans Raj
+            <span>Curated for ICSE 2026 Success</span>
+        </div>
+    </footer>
+
+    <script>
+        function filterList() {
+            // Get input value
+            let input = document.getElementById('searchBox');
+            let filter = input.value.toUpperCase();
+            
+            // Get all card containers
+            let cards = document.getElementsByClassName('card');
+            
+            // Loop through phrasal verbs
+            for (let i = 0; i < cards.length; i++) {
+                let verbSpan = cards[i].getElementsByClassName("verb")[0];
+                let meaningSpan = cards[i].getElementsByClassName("meaning")[0];
+                let txtValue = verbSpan.textContent || verbSpan.innerText;
+                let meaningValue = meaningSpan.textContent || meaningSpan.innerText;
+                
+                if (txtValue.toUpperCase().indexOf(filter) > -1 || meaningValue.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
